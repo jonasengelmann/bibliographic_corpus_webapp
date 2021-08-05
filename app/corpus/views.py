@@ -48,7 +48,7 @@ def fromat_as_short_iri(iri):
 def generate_resource_view(dataset_name, count, property_order):
     resource_data = get_corpus_resource_data(iri=f'{BASE_IRI}/{identifier}/{count}')
     ordered_resource_data = {
-        key: resource_data[key]
+        key: sorted(resource_data[key], key=lambda x: x['name'])
         for key in property_order
         if key in resource_data
     }
