@@ -56,7 +56,7 @@ def generate_resource_view(dataset_name, count, property_order):
 
 
 @blueprint.route('/')
-def corpus():
+def corpus_example():
     return redirect(url_for('.bibliographic_resource', id=1))
 
 
