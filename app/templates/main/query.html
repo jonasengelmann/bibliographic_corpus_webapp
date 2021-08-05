@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% set active_page = "Query" %}
+
+{% block content %}
+<div id="yasgui" class="container p-3 my-3 border">
+<script>
+    const defaultQuery = 
+    "PREFIX biro: <http://purl.org/spar/biro/>\n" +
+    "PREFIX c4o: <http://purl.org/spar/c4o/>\n" +
+    "PREFIX cito: <http://purl.org/spar/cito/>\n" +
+    "PREFIX co: <http://purl.org/co/>\n" +
+    "PREFIX datacite: <http://purl.org/spar/datacite/>\n" +
+    "PREFIX dcterms: <http://purl.org/dc/terms/>\n" +
+    "PREFIX doco: <http://purl.org/spar/doco/>\n" +
+    "PREFIX fabio: <http://purl.org/spar/fabio/>\n" +
+    "PREFIX foaf: <http://xmlns.com/foaf/0.1/>\n" +
+    "PREFIX frbr: <http://purl.org/vocab/frbr/core#>\n" +
+    "PREFIX literal: <http://www.essepuntato.it/2010/06/literalreification/>\n" +
+    "PREFIX oco: <https://w3id.org/oc/ontology/>\n" +
+    "PREFIX prism: <http://prismstandard.org/namespaces/basic/2.0/>\n" +
+    "PREFIX pro: <http://purl.org/spar/pro/>\n" +
+    "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n" +
+    "PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\n" +
+    "\n" +
+    "SELECT * WHERE { ?subject ?predicate ?object } LIMIT 20"
+
+    Yasgui.Yasqe.defaults['value'] = defaultQuery;
+
+    const yasgui = new Yasgui(document.getElementById("yasgui"), {
+    requestConfig: {
+        endpoint: "sparql",
+        method: 'POST',
+    },
+    copyEndpointOnNewTab: true,
+    });
+    
+</script>
+</div>
+{% endblock %}

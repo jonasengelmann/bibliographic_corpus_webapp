@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% set active_page = "Corpus" %}
+
+{% block content %}
+<div class="container p-3 my-3 border">
+    {% for key, values in data.items() %}
+        {% if key == "Label" %}
+            <h4>{{value.name}}</h4>
+            <hr class="solid">
+        {% endif %}
+    {% endfor %}
+
+    {% for key, values in data.items() %}
+    <div class="p-1 mb-2 bg-secondary text-white">{{key}}</div>
+    <ul>
+        {% for value in values %}
+            {% if value.link %}
+                <li> <a href={{value.link}}>{{value.name}}</a></li>
+            {% else %}
+                <li> {{value.name}}</li>
+            {% endif %} 
+        {% endfor %}
+    </ul>
+    {% endfor %}
+
+</div>
+{% endblock %}
