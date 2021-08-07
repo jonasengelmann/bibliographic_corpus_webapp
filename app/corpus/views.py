@@ -22,9 +22,9 @@ blueprint = Blueprint('corpus', __name__, static_folder='../static', url_prefix=
 
 
 property_orders = {
-    'id': ['Value', 'Scheme'],
-    'ar': ['Role', 'Relates To Document', 'Has Next', 'Relates To Organization'],
-    'ra': ['Name', 'Given Name', 'Family Name', 'Identifier'],
+    'id': ['Type', 'Value', 'Scheme'],
+    'ar': ['Type', 'Role', 'Relates To Document', 'Has Next', 'Relates To Organization'],
+    'ra': ['Type', 'Name', 'Given Name', 'Family Name', 'Has Identifier'],
     'br': [
         'Type',
         'Title',
@@ -39,10 +39,10 @@ property_orders = {
         'Contains',
         'Cites',
         ],
-    're': ['Format', 'Starting Page', 'Ending Page', 'URL'],
-    'be': ['Content', 'References', 'Annotation'],
-    'oe': ['Name'],
-    'st': ['Name'],
+    're': ['Type', 'Format', 'Starting Page', 'Ending Page', 'URL'],
+    'be': ['Type', 'Content', 'References', 'Annotation'],
+    'oe': ['Type', 'Name', 'Has Identifier'],
+    'st': ['Type', 'Name', 'Has Identifier'],
 }
 
 
