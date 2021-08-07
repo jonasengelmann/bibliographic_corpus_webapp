@@ -3,12 +3,8 @@
 
 {% block content %}
 <div class="container p-3 my-3 border">
-    {% for key, values in data.items() %}
-        {% if key == "Label" %}
-            <h4>{{value.name}}</h4>
-            <hr class="solid">
-        {% endif %}
-    {% endfor %}
+    <h4>{{title}}</h4>
+    <hr class="solid">
 
     {% for key, values in data.items() %}
     <div class="p-1 mb-2 bg-secondary text-white">{{key}}</div>

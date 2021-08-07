@@ -31,7 +31,7 @@ vocabularies = {
     'http://purl.org/dc/terms/description': 'Description',
     'http://purl.org/spar/datacite/hasIdentifier': 'Has Identifier',
     'http://www.essepuntato.it/2010/06/literalreification/hasLiteralValue': 'Value',
-    'http://www.essepuntato.it/2010/06/literalreificahttps://w3id.org/oc/ontology/tion/hasNext': 'Has Next',  # noqa
+    'https://w3id.org/oc/ontology/hasNext': 'Has Next',
     'http://prismstandard.org/namespaces/basic/2.0/publicationDate': 'Publication Date',
     'http://purl.org/spar/fabio/hasSequenceIdentifier': 'Sequence Identifier',
     'http://purl.org/spar/fabio/hasSubjectTerm': 'Has Subject Term',
@@ -98,4 +98,5 @@ vocabularies = {
     'http://www.essepuntato.it/2010/06/literalreificahttps://w3id.org/oc/ontology/tion/hasUpdateQuery': 'Update Query',  # noqa
     'http://www.w3.org/ns/prov#used': 'Used Ressource',
     'https://w3id.org/oc/ontology/hasAnnotation': 'Annotation',
+    'http://www.w3.org/2000/01/rdf-schema#label': 'Label',
 }

@@ -22,11 +22,10 @@ blueprint = Blueprint('corpus', __name__, static_folder='../static', url_prefix=
 
 
 property_orders = {
-    'id': ['Type', 'Value', 'Scheme'],
-    'ar': ['Type', 'Role', 'Relates To Document', 'Has Next', 'Relates To Organization'],
-    'ra': ['Type', 'Name', 'Given Name', 'Family Name', 'Has Identifier'],
+    'id': ['Value', 'Scheme'],
+    'ar': ['Held By', 'With Role', 'Relates To Document', 'Has Next', 'Relates To Organization'],
+    'ra': ['Name', 'Given Name', 'Family Name', 'Has Identifier'],
     'br': [
-        'Type',
         'Title',
         'Sequence Identifier',
         'Edition',
@@ -35,14 +34,15 @@ property_orders = {
         'Contributor',
         'Part Of',
         'Embodiment',
+        'Has Subject Term',
         'Relation',
         'Contains',
         'Cites',
         ],
-    're': ['Type', 'Format', 'Starting Page', 'Ending Page', 'URL'],
-    'be': ['Type', 'Content', 'References', 'Annotation'],
-    'oe': ['Type', 'Name', 'Has Identifier'],
-    'st': ['Type', 'Name', 'Has Identifier'],
+    're': ['Format', 'Starting Page', 'Ending Page', 'URL'],
+    'be': ['Content', 'References', 'Annotation'],
+    'oe': ['Name', 'Has Identifier'],
+    'st': ['Name', 'Has Identifier'],
 }
 
 
@@ -65,7 +65,7 @@ def get_resource_data(iri, key_order):
 
     return {
         key: sorted(resource_data[key], key=lambda x: x['name'])
-        for key in key_order
+        for key in ['Label', 'Type'] + key_order
         if key in resource_data
     }
 
@@ -85,4 +85,5 @@ def resource(dataset_identifier, iri_count):
         iri=f'{BASE_IRI}/{dataset_identifier}/{iri_count}',
         key_order=property_orders[dataset_identifier]
     )
-    return render_template('corpus/resource.html', data=resource_data)
+    title = resource_data.pop('Label')[0]['name']
+    return render_template('corpus/resource.html', title=title, data=resource_data)
