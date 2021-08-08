@@ -95,7 +95,7 @@ vocabularies = {
     'http://www.w3.org/ns/prov#hadPrimarySource': 'Primary Source',
     'http://www.w3.org/ns/prov#Agent': 'Provenance Agent',
     'http://www.w3.org/ns/prov#specializationOf': 'Snapshot Of',
-    'http://www.essepuntato.it/2010/06/literalreificahttps://w3id.org/oc/ontology/tion/hasUpdateQuery': 'Update Query',  # noqa
+    'https://w3id.org/oc/ontology/tion/hasUpdateQuery': 'Update Query',
     'http://www.w3.org/ns/prov#used': 'Used Ressource',
     'https://w3id.org/oc/ontology/hasAnnotation': 'Annotation',
     'http://www.w3.org/2000/01/rdf-schema#label': 'Label',
