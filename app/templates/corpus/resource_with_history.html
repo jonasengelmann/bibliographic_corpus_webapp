@@ -35,13 +35,13 @@
                     </h2>
                     <div id="flush-collapse{{loop.index}}" class="accordion-collapse collapse" aria-labelledby="flush-heading{{loop.index}}" data-bs-parent="#accordionFlush">
                         <div class="accordion-body">
-                                {% for key, value in item.items() %}
-                                    {% if value.link %}
-                                    <li>{{key}}: <a href={{value.link}}>{{value.name}}</a></li>
-                                    {% else %}
-                                    <li>{{key}}: {{value.name}}</li>
-                                    {% endif %} 
-                                {% endfor %}
+                            {% for key, value in item.items() %}
+                                {% if value.link %}
+                                <li>{{key}}: <a href={{value.link}}>{{value.name}}</a></li>
+                                {% else %}
+                                <li>{{key}}: {{value.name}}</li>
+                                {% endif %} 
+                            {% endfor %}
                         </div>
                     </div>
                 </div>
