@@ -3,7 +3,10 @@
 
 {% block content %}
 <div class="container p-3 my-3 border">
-    <h4>{{title}}</h4>
+    <div class="d-flex bd-highlight">
+        <div class="mx-2 flex-grow-1 bd-highlight"><h4>{{title}}</h4></div>
+        <div class="mx-2 bd-highlight"><a href='{{url_for(request.endpoint, **request.view_args)}}/view_history'>View History</a></div>
+    </div>
     <hr class="solid">
 
     {% for key, values in data.items() %}

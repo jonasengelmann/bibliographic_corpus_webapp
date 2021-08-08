@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% set active_page = "Corpus" %}
+
+{% block content %}
+<div class="container p-3 my-3 border">
+    <div class="d-flex bd-highlight">
+        <div class="mx-2 flex-grow-1 bd-highlight"><h4>{{title}}</h4></div>
+        <div class="mx-2 bd-highlight"><a href='{{url_for(request.endpoint, **request.view_args).replace("/view_history","")}}'>Hide History</a></div>
+    </div>
+    <hr class="solid">
+    <div class="row">
+        <div class="col-7">
+            {% for key, values in data.items() %}
+            <div class="p-1 mb-2 bg-secondary text-white">{{key}}</div>
+            <ul>
+                {% for value in values %}
+                    {% if value.link %}
+                        <li> <a href={{value.link}}>{{value.name}}</a></li>
+                    {% else %}
+                        <li> {{value.name}}</li>
+                    {% endif %} 
+                {% endfor %}
+            </ul>
+            {% endfor %}
+        </div>
+        <div class="col border-start">
+            <div class="mx-1"><h5>History</h5></div>
+            <div class="accordion accordion-flush" id="accordionFlush">
+                {% for item in history_data %}
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="flush-heading{{loop.index}}">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse{{loop.index}}" aria-expanded="false" aria-controls="flush-collapse{{loop.index}}">
+                        {{item['Generated At Time']['name']}} - {{item['Type']['name']}}
+                    </button>
+                    </h2>
+                    <div id="flush-collapse{{loop.index}}" class="accordion-collapse collapse" aria-labelledby="flush-heading{{loop.index}}" data-bs-parent="#accordionFlush">
+                        <div class="accordion-body">
+                                {% for key, value in item.items() %}
+                                    {% if value.link %}
+                                    <li>{{key}}: <a href={{value.link}}>{{value.name}}</a></li>
+                                    {% else %}
+                                    <li>{{key}}: {{value.name}}</li>
+                                    {% endif %} 
+                                {% endfor %}
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
