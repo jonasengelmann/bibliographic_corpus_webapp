@@ -85,6 +85,12 @@ def get_resource_data(iri, key_order):
     }
 
 
+def generate_resource_view(iri, key_order):
+    resource_data = get_resource_data(iri=iri, key_order=key_order)
+    title = resource_data.pop('Label')[0]['name']
+    return render_template('corpus/resource.html', title=title, data=resource_data)
+
+
 def fromat_as_short_iri(iri):
     result = re.match(pattern=rf'{BASE_IRI}/(.*?)/(\d+)$', string=iri)
     return f'{result.group(1)}:{result.group(2)}'
@@ -92,34 +98,28 @@ def fromat_as_short_iri(iri):
 
 @blueprint.route('/')
 def resource_example():
-    return redirect(url_for('.resource', dataset_identifier='br', iri_count=1))
+    return redirect(url_for('.resource', dataset_id='br', iri_count=1))
 
 
-@blueprint.route('<dataset_identifier>/<iri_count>')
-def resource(dataset_identifier, iri_count):
-    resource_data = get_resource_data(
-        iri=f'{BASE_IRI}/{dataset_identifier}/{iri_count}',
-        key_order=property_orders[dataset_identifier]
+@blueprint.route('<dataset_id>/<iri_count>')
+def resource(dataset_id, iri_count):
+    return generate_resource_view(
+        iri=f'{BASE_IRI}/{dataset_id}/{iri_count}',
+        key_order=property_orders[dataset_id]
     )
-    title = resource_data.pop('Label')[0]['name']
-    return render_template('corpus/resource.html', title=title, data=resource_data)
 
 
-@blueprint.route('prov/<dataset_identifier>/<iri_count>')
-def prov_resource(dataset_identifier, iri_count):
-    resource_data = get_resource_data(
-        iri=f'{BASE_IRI}/prov/{dataset_identifier}/{iri_count}',
-        key_order=property_orders[dataset_identifier]
+@blueprint.route('prov/<dataset_id>/<iri_count>')
+def prov_resource(dataset_id, iri_count):
+    return generate_resource_view(
+        iri=f'{BASE_IRI}/prov/{dataset_id}/{iri_count}',
+        key_order=property_orders[dataset_id]
     )
-    title = resource_data.pop('Label')[0]['name']
-    return render_template('corpus/resource.html', title=title, data=resource_data)
 
 
 @blueprint.route('<resource_dataset_id>/<resource_iri_count>/prov/<dataset_id>/<iri_count>')
 def prov_resource2(resource_dataset_id, resource_iri_count, dataset_id, iri_count):
-    resource_data = get_resource_data(
+    return generate_resource_view(
         iri=f'{BASE_IRI}/{resource_dataset_id}/{resource_iri_count}/prov/{dataset_id}/{iri_count}',
         key_order=property_orders[dataset_id]
     )
-    title = resource_data.pop('Label')[0]['name']
-    return render_template('corpus/resource.html', title=title, data=resource_data)
