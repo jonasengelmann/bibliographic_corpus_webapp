@@ -99,4 +99,5 @@ vocabularies = {
     'http://www.w3.org/ns/prov#used': 'Used Ressource',
     'https://w3id.org/oc/ontology/hasAnnotation': 'Annotation',
     'http://www.w3.org/2000/01/rdf-schema#label': 'Label',
+    'https://w3id.org/oc/ontology/hasUpdateQuery': 'Has Update Query',
 }
