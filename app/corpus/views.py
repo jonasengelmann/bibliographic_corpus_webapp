@@ -171,7 +171,8 @@ def resource_example():
 def resource(dataset_id, iri_count):
     return generate_resource_view(
         iri=f'{BASE_IRI}/{dataset_id}/{iri_count}',
-        key_order=property_orders[dataset_id]
+        key_order=property_orders[dataset_id],
+        provenance_resource=False
     )
 
 
@@ -179,7 +180,8 @@ def resource(dataset_id, iri_count):
 def prov_resource(dataset_id, iri_count):
     return generate_resource_view(
         iri=f'{BASE_IRI}/prov/{dataset_id}/{iri_count}',
-        key_order=property_orders[dataset_id]
+        key_order=property_orders[dataset_id],
+        provenance_resource=True
     )
 
 
@@ -187,7 +189,8 @@ def prov_resource(dataset_id, iri_count):
 def prov_resource2(resource_dataset_id, resource_iri_count, dataset_id, iri_count):
     return generate_resource_view(
         iri=f'{BASE_IRI}/{resource_dataset_id}/{resource_iri_count}/prov/{dataset_id}/{iri_count}',
-        key_order=property_orders[dataset_id]
+        key_order=property_orders[dataset_id],
+        provenance_resource=True
     )
 
 
