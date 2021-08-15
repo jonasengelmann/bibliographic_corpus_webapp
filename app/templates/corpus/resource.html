@@ -7,7 +7,7 @@
         <div class="mx-2 flex-grow-1 bd-highlight"><h4>{{title}}</h4></div>
         {% if not provenance_resource %}
         <div class="mx-2 bd-highlight"><a href='{{url_for(request.endpoint, **request.view_args)}}/view_history'>View History</a></div>
-        {% if not provenance_resource %}
+        {% endif %}
     </div>
     <hr class="solid">
 
