@@ -118,10 +118,15 @@ def get_history_data(iri):
     return view_history_objects
 
 
-def generate_resource_view(iri, key_order):
+def generate_resource_view(iri, key_order, provenance_resource):
     resource_data = get_resource_data(iri=iri, key_order=key_order)
     title = resource_data.pop('Label')[0]['name']
-    return render_template('corpus/resource.html', title=title, data=resource_data)
+    return render_template(
+        'corpus/resource.html',
+        title=title,
+        data=resource_data,
+        provenance_resource=provenance_resource
+    )
 
 
 def fromat_as_short_iri(iri):
