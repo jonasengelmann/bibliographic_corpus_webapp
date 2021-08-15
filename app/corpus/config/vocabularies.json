@@ -94,7 +94,7 @@
     "http://www.w3.org/ns/prov#Agent": "Provenance Agent",
     "http://www.w3.org/ns/prov#specializationOf": "Snapshot Of",
     "https://w3id.org/oc/ontology/tion/hasUpdateQuery": "Update Query",
-    "http://www.w3.org/ns/prov#used": "Used Ressource",
+    "http://www.w3.org/ns/prov#used": "Used Resource",
     "https://w3id.org/oc/ontology/hasAnnotation": "Annotation",
     "http://www.w3.org/2000/01/rdf-schema#label": "Label",
     "https://w3id.org/oc/ontology/hasUpdateQuery": "Has Update Query"

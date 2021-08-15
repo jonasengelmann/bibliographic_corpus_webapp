@@ -20,7 +20,7 @@
     "be": ["Content", "References", "Annotation"],
     "oe": ["Name", "Has Identifier"],
     "st": ["Name", "Has Identifier"],
-    "ca": ["Involved", "Description", "Informed By", "Used Ressource"],
+    "ca": ["Involved", "Description", "Informed By", "Used Resource"],
     "cr": ["Held By", "Curatorial Role Type"],
     "se": [
         "Snapshot Of",
